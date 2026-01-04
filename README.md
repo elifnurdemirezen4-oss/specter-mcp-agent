@@ -52,3 +52,8 @@ Uygulamanın çalışabilmesi için Google Cloud ayarlarının yapılması gerek
 Gerekli kütüphaneleri yükleyin:
 ```bash
 pip install -r requirements.txt
+Uygulamayı başlatın:
+```bash
+python gui_app.py
+
+⚠️ Önemli Not: İlk çalıştırmada tarayıcınız otomatik olarak açılarak Google hesabınızla giriş yapmanız ve izinleri onaylamanız istenecektir. Bu işlemden sonra oluşacak token.json dosyası, sonraki girişlerde otomatik yetkilendirme sağlar.
