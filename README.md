@@ -18,15 +18,12 @@ Specter, **Model Context Protocol (MCP)** mimarisini kullanarak yerel LLM'leri (
 * **👥 Akıllı Kişi Rehberi:** Google Sheets tabanlı bir CRM gibi çalışır. İsimleri "Bulanık Arama" (Fuzzy Search) ile bulur (Örn: "Elif" yazınca "Elif Nur Demirezen"i bulur).
 * **🖥️ Modern Arayüz:** PyQt5 ile geliştirilmiş, Dark Mode destekli, asenkron çalışan (donmayan) kullanıcı arayüzü.
 
-🛠️ Kullanılan Teknolojiler
-mcp (Model Context Protocol): AI ajanları ve araçlar arası standart.
-
-PyQt5: Python için grafik arayüz kütüphanesi.
-
-Google Client Library: Workspace API entegrasyonu.
-
-Ollama: Yerel LLM (Llama3 vb.) çalıştırıcısı.
-
+## 🛠️ Kullanılan Teknolojiler
+* **mcp (Model Context Protocol):** AI ajanları ve araçlar arası standart.
+* **PyQt5:** Python için grafik arayüz kütüphanesi.
+* **Google Client Library:** Workspace API entegrasyonu.
+* **Ollama:** Yerel LLM (Llama3 vb.) çalıştırıcısı.
+  
 ## 🏗️ Mimari
 
 Proje 3 ana katmandan oluşur:
