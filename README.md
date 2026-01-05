@@ -2,7 +2,7 @@
 
 Specter, **Model Context Protocol (MCP)** mimarisini kullanarak yerel LLM'leri (Ollama) Google Workspace araçlarıyla (Gmail, Calendar, Drive, Sheets) entegre eden, Python tabanlı akıllı bir masaüstü asistanıdır.
 
-![Python](https://img.shields.io/badge/Python-3.11.9%2B-blue)
+![Python](https://img.shields.io/badge/Python-3.11.9%-blue)
 ![MCP](https://img.shields.io/badge/Protocol-MCP-green)
 ![Ollama](https://img.shields.io/badge/AI-Ollama-orange)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
