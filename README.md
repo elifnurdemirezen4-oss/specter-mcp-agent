@@ -1,51 +1,67 @@
-# SPECTER 👻: MCP TABANLI YAPAY ZEKA OTOMASYONU
+# 👻 SPECTER: MCP Tabanlı Yapay Zeka Otomasyonu
 
-Specter, **Model Context Protocol (MCP)** mimarisini kullanarak yerel LLM'leri (Ollama) Google Workspace araçlarıyla (Gmail, Calendar, Drive, Sheets) entegre eden, Python tabanlı akıllı bir masaüstü asistanıdır.
+![Python Version](https://img.shields.io/badge/python-3.11%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Status](https://img.shields.io/badge/status-active-success)
 
-![Python](https://img.shields.io/badge/Python-3.11.9%2B-blue)
-![MCP](https://img.shields.io/badge/Protocol-MCP-green)
-![Ollama](https://img.shields.io/badge/AI-Ollama-orange)
-![License](https://img.shields.io/badge/license-MIT-lightgrey)
+**Specter**, Model Context Protocol (MCP) mimarisini kullanarak yerel LLM'leri (Ollama) Google Workspace araçlarıyla (Gmail, Calendar, Drive, Sheets) entegre eden, Python tabanlı akıllı bir masaüstü asistanıdır.
+
+![Specter Arayüz Görseli](https://via.placeholder.com/800x400?text=Buraya+Ekran+Goruntusu+Gelecek)
+*(Arayüz ekran görüntüsünü buraya ekleyin)*
+
+---
 
 ## 🌟 Özellikler
 
-* **🤖 Yerel Yapay Zeka Entegrasyonu:** Ollama üzerinden Llama3 (veya diğer modeller) ile çalışır. Verileriniz buluta gitmeden yerelde işlenir.
-* **📧 Akıllı E-Posta Yönetimi:**
-    * Gelen kutusunu analiz eder ve özetler.
-    * Gelen maile bağlama uygun cevap taslakları hazırlar.
-    * Doğal dil komutlarıyla mail gönderir.
-* **📅 Takvim Otomasyonu:** "Yarın Ahmet ile toplantı ayarla" gibi komutları algılar ve Google Takvim'e işler.
-* **👥 Akıllı Kişi Rehberi:** Google Sheets tabanlı bir CRM gibi çalışır. İsimleri "Bulanık Arama" (Fuzzy Search) ile bulur (Örn: "Elif" yazınca "Elif Nur Demirezen"i bulur).
-* **🖥️ Modern Arayüz:** PyQt5 ile geliştirilmiş, Dark Mode destekli, asenkron çalışan (donmayan) kullanıcı arayüzü.
+* **🤖 Yerel Yapay Zeka:** Verileriniz buluta gitmez. Ollama üzerinden **Llama3** ile %100 yerel çalışır.
+* **📧 Akıllı Mail Analizi:** Gelen kutunuzdaki son mailleri okur, özetler ve bağlama uygun cevap taslakları hazırlar.
+* **📅 Doğal Dil ile Takvim:** *"Yarın Ahmet ile 14:00'te toplantı set et"* dediğinizde Google Takvim'e işler.
+* **👥 Entegre CRM:** Google Sheets tabanlı kişi rehberi oluşturur. İsimleri "Bulanık Arama" (Fuzzy Search) ile bulur (Örn: "Elif" -> "Elif Nur Demirezen").
+* **⚡ Asenkron Arayüz:** PyQt5 ve `asyncio` mimarisi sayesinde işlemler sırasında arayüz donmaz.
 
-## 🛠️ Kullanılan Teknolojiler
-* **mcp (Model Context Protocol):** AI ajanları ve araçlar arası standart.
-* **PyQt5:** Python için grafik arayüz kütüphanesi.
-* **Google Client Library:** Workspace API entegrasyonu.
-* **Ollama:** Yerel LLM (Llama3 vb.) çalıştırıcısı.
-  
-## 🏗️ Mimari
+---
 
-Proje 3 ana katmandan oluşur:
+## 🛠️ Mimari ve Teknolojiler
 
-1.  **Backend (MCP Server):** `server.py`
-    * FastMCP kullanarak Google API'leri ile konuşur.
-    * OAuth2.0 kimlik doğrulamasını yönetir.
-2.  **AI Engine:** `ai_engine.py`
-    * Soyutlama katmanı (Abstraction) içerir.
-    * Ollama ile JSON formatında yapılandırılmış çıktı üretir.
-3.  **Frontend (GUI):** `gui_app.py`
-    * PyQt5 ve `asyncio` entegrasyonu.
-    * `stdio_client` üzerinden sunucu ile IPC (Inter-Process Communication) haberleşmesi yapar.
+Proje **Manager Design Pattern** kullanılarak 3 ana katmanda geliştirilmiştir:
 
+1.  **Backend (MCP Server):** `fastmcp` kullanarak Google API'leri ile haberleşir. OAuth2.0 yönetimini sağlar.
+2.  **AI Engine:** Soyutlanmış (Abstract) yapay zeka katmanı. Ollama ile JSON formatında yapılandırılmış çıktılar üretir.
+3.  **Frontend (GUI):** `stdio_client` üzerinden sunucu ile IPC (Inter-Process Communication) haberleşmesi yapan PyQt5 arayüzü.
+
+---
+
+## 📂 Proje Yapısı
+
+Dosyaların doğru çalışması için dizin yapısı aşağıdaki gibi olmalıdır:
+
+```text
+specter-mcp-agent/
+├── ai_engine.py       # Yapay zeka mantık katmanı
+├── gui_app.py         # PyQt5 Arayüz uygulaması (Başlatıcı)
+├── server.py          # MCP Sunucusu ve Google servisleri
+├── requirements.txt   # Kütüphane gereksinimleri
+├── credentials.json   # Google Cloud'dan indirilecek (Siz ekleyeceksiniz)
+└── token.json         # İlk girişten sonra otomatik oluşur (Silmeyin)
+```
 ## 🚀 Kurulum
 
 ### 1. Gereksinimler
 * Python 3.11.9
 * [Ollama](https://ollama.com/) (Yüklü ve `llama3` modeli çekilmiş olmalı)
 * Google Cloud Console üzerinden alınmış `credentials.json` dosyası.
-
-### 2. Google API Ayarları
+  
+### 2. Kütüphanelerin Yüklenmesi
+* Terminali açın ve gerekli paketleri yükleyin:
+```bash
+pip install -r requirements.txt
+```
+### 3. AI Modelinin Hazırlanması
+* Specter varsayılan olarak llama3 modelini kullanır. Terminalden şu komutu çalıştırarak modeli indirin:
+```bash
+ollama pull llama3
+```
+### 4. Google API Ayarları
 Uygulamanın çalışabilmesi için Google Cloud ayarlarının yapılması gerekmektedir:
 1. [Google Cloud Console](https://console.cloud.google.com/)'da yeni bir proje oluşturun.
 2. **Gmail**, **Calendar**, **Drive** ve **Sheets** API'lerini kütüphaneden bulup etkinleştirin.
@@ -53,14 +69,26 @@ Uygulamanın çalışabilmesi için Google Cloud ayarlarının yapılması gerek
 4. "Desktop App" seçeneği ile bir **OAuth Client ID** oluşturun.
 5. İndirdiğiniz JSON dosyasının adını `credentials.json` olarak değiştirin ve proje ana dizinine atın.
 
-### 3. Kurulum ve Çalıştırma
-
-Gerekli kütüphaneleri yükleyin:
-```bash
-pip install -r requirements.txt
-```
+### 5. KULLANIM
 Uygulamayı başlatın:
 ```bash
 python gui_app.py
 ```
-⚠️ Önemli Not: İlk çalıştırmada tarayıcınız otomatik olarak açılarak Google hesabınızla giriş yapmanız ve izinleri onaylamanız istenecektir. Bu işlemden sonra oluşacak token.json dosyası, sonraki girişlerde otomatik yetkilendirme sağlar.
+* İlk Çalıştırma: Tarayıcınız açılacak ve Google izni isteyecektir. Onayladıktan sonra token.json dosyası oluşur ve bir daha giriş yapmanız gerekmez.
+  
+###   👥 Kişi Rehberi (CRM) Nasıl Çalışır?
+* İlk çalıştırmada Specter, Google Drive'ınızda Specter_Contact_List adında bir Excel (Sheets) dosyası oluşturur.
+1. Drive'ınıza gidin.
+2. Bu dosyayı açın.
+3. `A` sütununa **İsim Soyisim**, `B` sütununa **E-Posta** adreslerini manuel olarak ekleyin.
+4. Artık "Elif'e mail at" dediğinizde Specter bu listeden kişiyi bulacaktır.
+   
+### ⚠️ Sorun Giderme
+* Hata: Connection refused (Ollama hatası)
+* Çözüm: Ollama uygulamasının arka planda çalıştığından emin olun.
+  
+* Hata: Rehber erişilemedi
+* Çözüm: credentials.json dosyasının doğru yerde olduğunu ve Sheets API'nin Google Cloud'da etkinleştirildiğini kontrol edin.
+  
+### 📜 Lisans
+ Bu proje MIT Lisansı ile lisanslanmıştır.
