@@ -11,8 +11,10 @@
 <img width="1098" height="828" alt="specter_ss" src="https://github.com/user-attachments/assets/a7e51e40-2393-4d71-9ac2-0543328eafa5" />
 
 ---
+
 ## 🎯 Projenin Amacı
 Bu proje, eğitimcilerin üzerindeki yoğun idari iş yükünü (e-posta trafiği, takvim planlaması, rehber yönetimi) hafifletmek ve verimliliği artırmak amacıyla geliştirilmiştir.
+
 ---
 
 ## 🌟 Özellikler
