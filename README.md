@@ -11,6 +11,9 @@
 <img width="1098" height="828" alt="specter_ss" src="https://github.com/user-attachments/assets/a7e51e40-2393-4d71-9ac2-0543328eafa5" />
 
 ---
+## 🎯 Projenin Amacı
+Bu proje, eğitimcilerin üzerindeki yoğun idari iş yükünü (e-posta trafiği, takvim planlaması, rehber yönetimi) hafifletmek ve verimliliği artırmak amacıyla geliştirilmiştir.
+---
 
 ## 🌟 Özellikler
 
@@ -92,4 +95,9 @@ python gui_app.py
 * Çözüm: credentials.json dosyasının doğru yerde olduğunu ve Sheets API'nin Google Cloud'da etkinleştirildiğini kontrol edin.
   
 ---
-Bu proje Ankara Üniversitesi, Eğitim Bilimleri Fakültesi, Bilgisayar ve Öğretim Teknolojileri Eğitimi Bölümü (BÖTE) öğrencisi tarafından geliştirilmiştir.
+Lisans ve Telif Hakkı
+Bu proje, Ankara Üniversitesi BOZ213 - Nesne Tabanlı Programlama dersi kapsamında geliştirilmiştir.
+
+Kaynak kodlar yalnızca eğitim ve inceleme amacıyla kullanılabilir. İzinsiz ticari kullanım, kopyalama ve dağıtım yasaktır.
+
+© 2026 Elif Nur Demirezen. Tüm hakları saklıdır.
